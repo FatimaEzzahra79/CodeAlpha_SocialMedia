@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeAlpha Social - Feed</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ============================ NAVBAR ============================ -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">Code<span>Alpha</span> Social</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Feed</a>
+        <a href="profile.html">Profile</a>
+        <a href="login.html" id="navLogin">Login</a>
+        <a href="register.html" id="navRegister" class="btn btn-outline btn-sm">Register</a>
+        <div class="nav-user hidden" id="navUserWrap">
+          <a href="profile.html" class="nav-user-link">
+            <img id="navAvatar" class="nav-avatar" alt="Avatar" />
+            <span id="navUserName">User</span>
+          </a>
+          <button class="btn btn-outline btn-sm" id="navLogout" type="button">Logout</button>
+        </div>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- ============================= FEED ============================= -->
+  <main class="container main-grid">
+    <section class="feed-col">
+      <!-- Composer (only for logged-in users) -->
+      <form class="card composer" id="composerForm">
+        <div class="composer-head">
+          <img id="composerAvatar" class="avatar" alt="Your avatar" />
+          <textarea
+            id="postContent"
+            class="textarea"
+            maxlength="500"
+            rows="3"
+            placeholder="What's on your mind?"
+          ></textarea>
+        </div>
+        <input id="postImage" class="input" type="url" placeholder="Image URL (optional)" />
+        <div class="composer-foot">
+          <span class="char-count" id="charCount">0/500</span>
+          <button class="btn" id="postBtn" type="submit">Post</button>
+        </div>
+        <p class="form-error hidden" id="composerError"></p>
+      </form>
+
+      <!-- Shown to logged-out visitors -->
+      <div class="card prompt hidden" id="loginPrompt">
+        <p>Log in to share your thoughts, like posts and comment.</p>
+        <a href="login.html" class="btn">Log In</a>
+      </div>
+
+      <!-- Posts are rendered by js/feed.js -->
+      <div class="feed" id="feedPosts">
+        <p class="muted">Loading feed...</p>
+      </div>
+    </section>
+
+    <aside class="side-col">
+      <div class="card side-card">
+        <h3>Welcome</h3>
+        <p class="muted">
+          A tiny social network built for the CodeAlpha Full Stack Development Internship.
+          Share a thought, follow people and join the conversation.
+        </p>
+      </div>
+      <div class="card side-card">
+        <h3>Tips</h3>
+        <ul class="side-list">
+          <li>Keep posts under 500 characters.</li>
+          <li>Add an optional image URL to your post.</li>
+          <li>Click the heart to like a post.</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built for CodeAlpha Full Stack Development Internship</p>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/feed.js"></script>
+</body>
+</html>

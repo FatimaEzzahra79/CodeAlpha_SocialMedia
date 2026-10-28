@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeAlpha Social - Post</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ============================ NAVBAR ============================ -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">Code<span>Alpha</span> Social</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Feed</a>
+        <a href="profile.html">Profile</a>
+        <a href="login.html" id="navLogin">Login</a>
+        <a href="register.html" id="navRegister" class="btn btn-outline btn-sm">Register</a>
+        <div class="nav-user hidden" id="navUserWrap">
+          <a href="profile.html" class="nav-user-link">
+            <img id="navAvatar" class="nav-avatar" alt="Avatar" />
+            <span id="navUserName">User</span>
+          </a>
+          <button class="btn btn-outline btn-sm" id="navLogout" type="button">Logout</button>
+        </div>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- ========================= SINGLE POST ========================== -->
+  <main class="container narrow section">
+    <a href="index.html" class="back-link">&larr; Back to feed</a>
+
+    <div id="postDetail">
+      <p class="muted">Loading post...</p>
+    </div>
+
+    <!-- Comments (shown once the post loads) -->
+    <section class="card comments hidden" id="commentsSection">
+      <h2 class="comments-title">Comments (<span id="commentsCount">0</span>)</h2>
+
+      <form class="comment-form" id="commentForm">
+        <input
+          class="input"
+          type="text"
+          id="commentText"
+          maxlength="300"
+          placeholder="Write a comment..."
+          autocomplete="off"
+        />
+        <button class="btn" type="submit" id="commentSubmit">Send</button>
+      </form>
+
+      <div class="card prompt hidden" id="commentLoginPrompt">
+        <p>Log in to join the conversation.</p>
+        <a href="login.html" class="btn">Log In</a>
+      </div>
+
+      <div id="commentsList"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built for CodeAlpha Full Stack Development Internship</p>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/post.js"></script>
+</body>
+</html>
